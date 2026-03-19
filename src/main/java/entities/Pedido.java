@@ -32,15 +32,18 @@ public class Pedido {
         this.platos = new ArrayList<>();
     }
 
-    public String mostrarPlatos() {
+    public String mostrarPedido() {
         StringBuffer sb = new StringBuffer();
-        sb.append("Pedido ").append(id).append("\n");
-        sb.append("Cliente ").append(cliente.getNombre()).append("\n");
-        sb.append("Dirección ").append(direccion).append("\n");
+        sb.append("Pedido: ").append(id).append("\n");
+        sb.append("Cliente: ").append(cliente.getNombre()).append("\n");
+        sb.append("Dirección: ").append(direccion).append("\n");
         sb.append("Platos del pedido: \n");
+        double total = 0;
         for (Plato plato : platos) {
             sb.append(plato.getNombre()).append(" - ").append(plato.getPrecio()).append("€\n");
+            total += plato.getPrecio();
         }
+        sb.append("Precio total: ").append(total).append("€\n");
         return sb.toString();
     }
 }
