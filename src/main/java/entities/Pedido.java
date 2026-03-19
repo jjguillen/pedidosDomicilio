@@ -1,8 +1,18 @@
 package entities;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+@Getter
+@Setter
+@ToString
 public class Pedido {
     private static long count = 0;
 
@@ -11,5 +21,26 @@ public class Pedido {
     private String direccion;
     private LocalDate fecha;
     private EstadoPedido estado;
-    private Map<Integer, Plato> platos; //1 - Hamburguesa, 2 - Pizza
+    private List<Plato> platos;
+
+    public Pedido(Cliente cliente, String direccion) {
+        this.cliente = cliente;
+        this.direccion = direccion;
+        this.id = count++;
+        this.fecha = LocalDate.now();
+        this.estado = EstadoPedido.PENDIENTE;
+        this.platos = new ArrayList<>();
+    }
+
+    public String mostrarPlatos() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("Pedido ").append(id).append("\n");
+        sb.append("Cliente ").append(cliente.getNombre()).append("\n");
+        sb.append("Dirección ").append(direccion).append("\n");
+        sb.append("Platos del pedido: \n");
+        for (Plato plato : platos) {
+            sb.append(plato.getNombre()).append(" - ").append(plato.getPrecio()).append("€\n");
+        }
+        return sb.toString();
+    }
 }
