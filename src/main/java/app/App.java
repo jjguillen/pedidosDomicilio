@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 public class App {
 
-    static void main() {
+    public static void main(String[] args) {
 
         GestorPedidos gestPed = new GestorPedidos("LaCalle SmashBurger");
 
