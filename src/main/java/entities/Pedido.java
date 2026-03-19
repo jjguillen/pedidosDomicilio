@@ -14,7 +14,7 @@ import java.util.Map;
 @Setter
 @ToString
 public class Pedido {
-    private static long count = 0;
+    private static long count = 1;
 
     private Long id;
     private Cliente cliente;
@@ -37,6 +37,7 @@ public class Pedido {
         sb.append("Pedido: ").append(id).append("\n");
         sb.append("Cliente: ").append(cliente.getNombre()).append("\n");
         sb.append("Dirección: ").append(direccion).append("\n");
+        sb.append("Fecha: ").append(fecha).append("\n");
         sb.append("Platos del pedido: \n");
         double total = 0;
         for (Plato plato : platos) {
