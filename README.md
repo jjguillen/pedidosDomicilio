@@ -9,3 +9,16 @@
     - Cliente
     - Estado
 
+## Dependencias
+- Java 25
+- Maven
+
+## Instrucciones de ejecución
+1. `mvn clean install`
+2. `mvn exec:java` o 
+   `mvn exec:java -Dexec.mainClass="app.App"`
+
+
+
+
+
