@@ -46,4 +46,12 @@ public class Pedido {
         sb.append("Precio total: ").append(total).append("€\n");
         return sb.toString();
     }
+
+    /**
+     * Agrega un plato al pedido.
+     * @param plato
+     */
+    public void agregarPlato(Plato plato) {
+        platos.add(plato);
+    }
 }
